@@ -1,0 +1,28 @@
+<div class="row">
+   <div class="span4">
+       <!-- empty, but using spacer to prevent collapse -->
+       <div class="spacer10"></div>
+   </div>
+ </div>
+<div ng-if="list.found.length > 0" >
+  <h4>{{ list.found.length}} item(s) found for - {{ list.searchResultTitle}} </h4>
+  <table class="table table-sm table-striped">
+      <thead class="thead-default">
+        <tr>
+          <th class="col-md-1">Short Name</th>
+          <th class="col-md-2">Name</th>
+          <th class="col-md-6">Description</th>
+          <th class="col-md-4"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="item in list.found">
+          <td>{{ item.short_name }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.description }}</td>
+          <td><button class="btn btn-sm btn-warning" ng-click="list.onRemove({index: $index});">Don't want this one!</button></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<div class="error" ng-if="list.found.length == 0" >Nothing found</div>
