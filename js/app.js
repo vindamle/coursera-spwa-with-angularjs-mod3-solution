@@ -73,7 +73,9 @@ function FoundItemsDirective() {
             url: (MenuServiceApiBasePath + "/menu_items.json"),
           }).then(function (response) {
              response.data.menu_items.forEach(function(item, index) {
-               if ((searchTerm.trim().length > 0 ) && (item.description.toLowerCase().includes(searchTerm.toLowerCase()))) {
+               if ((searchTerm) && 
+                   (searchTerm.trim().length > 0 ) &&
+                   (item.description.toLowerCase().includes(searchTerm.toLowerCase()))) {
                  data.push(item);
                }
              });
